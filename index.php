@@ -128,9 +128,193 @@
     define("Names", "Eng Masoud");
     function MyTest(){
         echo Names;
-    };
+    }
     MyTest();
-    
+    echo "<br>";
+    echo "<br>";
+
+    //PHP Magic Constants.
+
+    //If used inside a class, the class name is returned
+    class Fruits {
+        public function myValue(){
+          return __CLASS__;
+        }
+      }
+      $variable = new Fruits();
+      echo $variable->myValue(). "<br>";
+
+      //The directory of the file
+      echo __DIR__ . "<br>";
+      //The file name including the full path
+      echo __FILE__ . "<br>";
+      //If inside a function, the function name is returned
+      function myValue(){
+        return __FUNCTION__;
+      }
+      echo myValue();
+      echo "<br>";
+      //The current line number
+      echo __LINE__ . "<br>";
+      //If used inside a function that belongs to a class, both class and function name is returned
+      class Fruit {
+        public function myValue(){
+          return __METHOD__;
+        }
+      }
+      $kiwi = new Fruits();
+      echo $kiwi->myValue() . "<br>";
+
+      //If used inside a namespace, the name of the namespace is returned
+      //namespace myArea;
+      function myValues(){
+        return __NAMESPACE__;
+      }
+
+      echo myValue(). "<br>";
+      //If used inside a trait, the trait name is returned
+      trait message1 {
+        public function msg1() {
+          echo __TRAIT__; 
+        }
+      }
+      
+      class Welcome {
+        use message1;
+      }
+      
+      $obj = new Welcome();
+      $obj->msg1();
+      echo "<br>";
+      //Returns the name of the specified class and the name of the namespace, if any
+      //namespace myArea;
+      class Fruitss{
+        public function myValu(){
+          return Fruitss::class;
+        }
+      }
+
+      $kiwi = new Fruitss();
+      echo $kiwi->myValu() . "<br>";
+
+      //PHP Operators.
+
+      //PHP Comparison Operators
+      $x == $y; // Returns true if $x is equal to $y	
+      //$x === $y //Returns true if $x is equal to $y, and they are of the same type
+      //$x != $y //Returns true if $x is not equal to $y
+      //$x <> $y //Returns true if $x is not equal to $y
+      //$x !== $y //Returns true if $x is not equal to $y, or they are not of the same type
+      //$x > $y //Returns true if $x is greater than $y
+      //$x < $y //Returns true if $x is less than $y	
+      //$x >= $y //Returns true if $x is greater than or equal to $y
+      //$x <= $y //Returns true if $x is less than or equal to $y
+      //$x <=> $y //Returns an integer less than, equal to, or greater than zero, depending on if $x is less than, equal to, or greater than $y
+
+      //PHP Increment / Decrement Operators
+      $m = 1;
+      ++$m;
+      $m++;
+      --$m;
+      $m--;
+      //PHP Conditional Assignment Operators
+
+    // if empty($user) = TRUE, set $status = "anonymous"
+   echo $status = (empty($namei)) ? "anonymous" : "logged in";
+   echo("<br>");
+
+   $name = "Eng Masoud";
+   // if empty($user) = FALSE, set $status = "logged in"
+   echo $status = (empty($name)) ? "anonymous" : "logged in" . "<br>";
+
+   //PHP Conditional Statements
+
+   //PHP - The if Statement
+
+   if (10 > 5) {
+    echo "Have a good day!" . "<br>";
+  }
+
+  $t = 14;
+
+   if ($t < 20) {
+    echo "Have a good day!". "<br>";
+  }
+
+  //PHP if Operators
+  $t = 14;
+
+if ($t == 14) {
+  echo "Have a good day!"."<br>";
+} //Comparison Operators
+
+$a = 200;
+$b = 33;
+$c = 500;
+
+if ($a > $b && $a < $c ) {
+  echo "Both conditions are true" . "<br>";
+} //Logical Operators
+
+$a = 5;
+
+if ($a == 2 || $a == 3 || $a == 4 || $a == 5 || $a == 6 || $a == 7) {
+  echo "$a is a number between 2 and 7" . "<br>";
+}//Logical Operators
+
+//PHP - The if...else Statement
+
+if ( 30 < 20) {
+  echo "Have a good day!" . "<br>";
+} else {
+  echo "Have a good night!" . "<br>";
+}
+
+
+//PHP - The if...elseif...else Statement
+
+if ( 15 < 10) {
+    echo "Have a good morning!". "<br>";
+  } elseif ( 15 < 20) {
+    echo "Have a good day!". "<br>";
+  } else {
+    echo "Have a good night!". "<br>";
+  }
+//PHP Shorthand if Statements
+
+$a = 5;
+
+if ($a < 10) $b = "Hello";
+
+echo $b ."<br>"; //Short Hand If
+
+$a = 13;
+
+$b = $a < 10 ? "Hello" : "Good Bye";
+
+echo $b . "<br>"; //Short Hand If...Else
+
+//PHP Nested if Statement
+
+$a = 13;
+
+if ($a > 10) {
+  echo "Above 10" ."<br>";
+  if ($a > 20) {
+    echo " and also above 20" ."<br>";
+  } else {
+    echo " but not above 20" ."<br>";
+  }
+}//Nested If
+
+
+
+
+
+
+
+
+
 
     ?>
     <p>Hi! My name is <?php echo $name; ?>, and I'm learning PHP!</p>    <h1></h1>    
