@@ -223,9 +223,9 @@
    echo $status = (empty($namei)) ? "anonymous" : "logged in";
    echo("<br>");
 
-   $name = "Eng Masoud";
+   $names = "Eng Masoud";
    // if empty($user) = FALSE, set $status = "logged in"
-   echo $status = (empty($name)) ? "anonymous" : "logged in" . "<br>";
+   echo $status = (empty($names)) ? "anonymous" : "logged in" . "<br>";
 
    //PHP Conditional Statements
 
@@ -307,14 +307,367 @@ if ($a > 10) {
   }
 }//Nested If
 
+//PHP switch Statement
+$favcolor = "blue";
+
+switch ($favcolor) {
+  case "red":
+    echo "Your favorite color is red!" ."<br>";
+    break;
+  case "blue":
+    echo "Your favorite color is blue!" ."<br>";
+    break;
+  case "green":
+    echo "Your favorite color is green!" ."<br>";
+    break;
+  default:
+    echo "Your favorite color is neither red, blue, nor green!" ."<br>";
+}
+
+//PHP loops
+
+//PHP while Loop
+
+$i = 1;
+while ($i < 6) {
+  echo $i ."<br>";
+  $i++;
+}
+
+//The break Statement
+
+$i = 1;
+while ($i < 6) {
+  if ($i == 3) break;
+  echo $i . "<br>";
+  $i++;
+}
+
+//The continue Statement
+
+$i = 0;
+while ($i < 6) {
+  $i++;
+  if ($i == 3) continue;
+  echo $i . "<br>";
+}
+
+//The PHP do...while Loop
+
+$i = 1;
+
+do {
+  echo $i . "<br>";
+  $i++;
+} while ($i < 6);
+
+//The break Statement
+
+$i = 1;
+
+do {
+  if ($i == 3) break;
+  echo $i . "<br>";
+  $i++;
+} while ($i < 6);
+
+//The continue Statement
+
+$i = 0;
+
+do {
+  $i++;
+  if ($i == 3) continue;
+  echo $i . "<br>" ;
+} while ($i < 6);
+
+//The PHP for Loop
+
+for ($x = 0; $x <= 10; $x++) {
+    echo "The number is: $x <br>";
+  }
+
+//The break Statement
+
+for ($x = 0; $x <= 10; $x++) {
+    if ($x == 3) break;
+    echo "The number is: $x <br>";
+  }
+
+//The continue Statement
+
+for ($x = 0; $x <= 10; $x++) {
+    if ($x == 3) continue;
+    echo "The number is: $x <br>";
+  }
+
+
+//PHP foreach Loop
+
+
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as $color) {
+  echo "$color <br>";
+} // The foreach Loop on Arrays
+
+//Keys and Values
+
+$members = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+foreach ($members as $x => $y) {
+  echo "$x : $y <br>";
+} 
+
+//The foreach Loop on Objects
+
+class Cars {
+    public $color;
+    public $model;
+    public function __construct($color, $model) {
+      $this->color = $color;
+      $this->model = $model;
+    }
+  }
+  
+  $myCars = new Cars("red", "Volvo");
+  
+  foreach ($myCars as $x => $y) {
+    echo "$x: $y <br>";
+  }
+
+  //The break Statement
+  $colors = array("red", "green", "blue", "yellow");
+
+  foreach ($colors as $x) {
+    if ($x == "blue") break;
+    echo "$x <br>";
+  }
+
+//The continue Statement
+
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as $x) {
+  if ($x == "blue") continue;
+  echo "$x <br>";
+}
+
+//Foreach Byref
+
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as $x) {
+  if ($x == "blue") $x = "pink";
+  echo "$x <br>";
+}
+
+echo var_dump($colors) . "<br>";
+
+//& character in the foreach
+
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as &$x) {
+  if ($x == "blue") $x = "pink";
+}
+
+echo var_dump($colors). "<br>";
+
+//PHP Break
+
+for ($x = 0; $x < 10; $x++) {
+    if ($x == 4) {
+      break;
+    }
+    echo "The number is: $x <br>";
+  }
+
+
+//PHP Continue
+
+
+for ($x = 0; $x < 10; $x++) {
+    if ($x == 4) {
+      continue;
+    }
+    echo "The number is: $x <br>";
+  }
+
+
+//PHP Functions
+
+function myMessage() {
+    echo "Hello world! <br>";
+  }
+  
+  myMessage();
+
+
+//PHP Function Arguments
+
+function familyName($fname, $year) {
+    echo "$fname Masoud. Born in $year <br>";
+  }
+  
+  familyName("Eng", "20000");
+
+
+//PHP Default Argument Value
+
+
+function setHeight($minheight = 50) {
+    echo "The height is : $minheight <br>";
+  }
+  
+setHeight(); //will use the default value of 50
+
+
+//PHP Functions - Returning values
+
+
+function sum($x, $y) {
+    $z = $x + $y;
+    return $z;
+  }
+  
+echo "5 + 10 = " . sum(5, 10) . "<br>";
+
+//Passing Arguments by Reference
+
+
+function add_five(&$value) {
+    $value += 5;
+  }
+  
+$num = 2;
+add_five($num);
+echo $num . "<br>";
+
+//Variable Number of Arguments
+
+
+function sumMyNumbers(...$x) {
+    $n = 0;
+    $len = count($x);
+    for($i = 0; $i < $len; $i++) {
+      $n += $x[$i];
+    }
+    return $n;
+  }
+  
+  $a = sumMyNumbers(5, 2, 6, 2, 7, 7,6,3);
+  echo $a. "<br>"; ///
+
+
+//The variadic argument must be the last argument
+
+
+function myFamily($lastname, ...$firstname) {
+    $txt = "";
+    $len = count($firstname);
+    for($i = 0; $i < $len; $i++) {
+      $txt = $txt."Hi, $firstname[$i] $lastname.<br>";
+    }
+    return $txt;
+  }
+  
+  $a = myFamily("ibrahim", "Said", "Abdulahi", "Masoud");
+  echo $a . "<br>";
+
+//PHP is a Loosely Typed Language
+
+
+function addNumbers(int $a, int $b) {
+    return $a + $b;
+  }
+  echo addNumbers(5,5);
+  // since strict is NOT enabled "5 days" is changed to int(5), and it will return 10
 
 
 
+  //declare(strict_types=1); // strict requirement
+
+  function addNumberss(int $a, int $b) {
+    return $a + $b;
+  }
+  echo addNumbers(5,5);
+  // since strict is enabled and "5 days" is not an integer, an error will be thrown
 
 
+//PHP Arrays
 
 
+$cars = array("Volvo", "BMW", "Toyota");
 
+//Array items of four different data types
+
+$myArr = array("Volvo", 15, ["apples", "bananas"]);
+
+
+//PHP Indexed Arrays
+
+
+$cars = array("Volvo", "BMW", "Toyota");
+echo $cars[0];
+
+//PHP Associative Arrays
+
+
+$car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+var_dump($car);
+
+
+//Display the model of the car
+
+$car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+echo $car["model"];
+
+
+//PHP Multidimensional Arrays
+
+
+$cars = array (
+    array("Volvo",22,18),
+    array("BMW",15,13),
+    array("Saab",5,2),
+    array("Land Rover",17,15)
+  ); //We can store the data from the table above in a two-dimensional array, like this
+
+
+  //We can also put a for loop inside another for loop to get the elements of the $cars array
+
+  for ($row = 0; $row < 4; $row++) {
+    echo "<p><b>Row number $row</b></p>";
+    echo "<ul>";
+      for ($col = 0; $col < 3; $col++) {
+        echo "<li>".$cars[$row][$col]."</li>";
+      }
+    echo "</ul>";
+  }
+
+// PHP Global Variables - Superglobals
+
+//GLOBALS
+$x = 75;
+  
+function myfunction() {
+  echo $GLOBALS['x'];
+}
+
+myfunction(); //Refer to the global variable $x inside a function
+
+
+//
+
+$x = 75;
+  
+function myfunctions() {
+  global $x;
+  echo $x;
+}
+
+myfunction(); //Define $x as global inside a function
 
     ?>
     <p>Hi! My name is <?php echo $name; ?>, and I'm learning PHP!</p>    <h1></h1>    
